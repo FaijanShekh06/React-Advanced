@@ -17,7 +17,7 @@ const page = ({ params }) => {
     getUsers();
   }, []);
 
-  return <div>{JSON.stringify(users)}</div>;
+  return <div className="p-5 m-5">{JSON.stringify(users)}</div>;
 };
 
 export default page;
