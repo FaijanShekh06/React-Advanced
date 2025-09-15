@@ -2,6 +2,9 @@
 
 import Header from "@/Components/Header";
 import { MyContext } from "@/Helper/Context";
+import { toast, ToastContainer } from "react-toastify";
+
+import React from "react";
 // !Two ways binding
 // import React, { use, useState } from "react";
 
@@ -99,17 +102,32 @@ import { MyContext } from "@/Helper/Context";
 
 // export default page;
 
-// !Context API with useContext
-import React, { useContext } from "react";
-
+// !Toast Notification
 const page = () => {
-  const user = useContext(MyContext);
-  console.log(user);
+  const notify = () => {
+    console.log("clicked");
+    toast.success("🦄 Wow so easy!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      
+    });
+  };
+
   return (
     <div>
-      This is Home Page
-      <h1 className="text-4xl">Hello {user}</h1>
-      <Header />
+      <button
+        onClick={notify}
+        className="bg-emerald-500 px-3 py-2 m-5 rounded-xl text-xl text-white font-bold border-1 border-black"
+      >
+        LOGIN
+      </button>
+      <ToastContainer />
     </div>
   );
 };
